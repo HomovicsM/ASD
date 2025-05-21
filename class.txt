@@ -1,0 +1,28 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace celloveszetCLI
+{
+    internal class Lovok
+    {
+        //név,első lövés, második lövés, harmadik lövés, negyedik lövés,
+        public string Nev { get; private set; }
+        public int Elso_Loves { get; private set; }
+        public int Masodik_loves { get; private set; }
+        public int Harmadik_Loves { get; private set; }
+        public int Negyedik_Loves { get; private set; }
+
+        public Lovok(string sor) 
+        {
+            string[] temp = sor.Split(';');
+            Nev = temp[0];
+            Elso_Loves = int.Parse(temp[1]);
+            Masodik_loves = int.Parse(temp[2]);
+            Harmadik_Loves = int.Parse(temp[3]);
+            Negyedik_Loves += int.Parse(temp[4]);
+        }
+    }
+}

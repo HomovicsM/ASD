@@ -1,0 +1,16 @@
+namespace celloveszetCLI
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            List<Lovok> list = new List<Lovok>();
+            string[] allomany = File.ReadAllLines("C:\Users\Domonkos\source\repos\celloveszetCLI\celloveszetCLI\lovesek.csv");
+
+            foreach (var item in allomany)
+            {
+                list.Add(new Lovok(item));
+            }
+        }
+    }
+}

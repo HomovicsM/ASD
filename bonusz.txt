@@ -1,0 +1,11 @@
+Console.WriteLine("Bonusz feladat: Kérek egy nevet");
+            string beNev = Console.ReadLine();
+            Cellovo be = lovesek.FirstOrDefault(l => l.Nev == beNev);
+            if (be!=null)
+            {
+                Console.WriteLine(be.Nev);
+            }
+            else
+            {
+                Console.WriteLine("nincs");
+            }
