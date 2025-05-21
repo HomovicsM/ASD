@@ -1,0 +1,25 @@
+        [HttpGet("ById{id}")]
+        public ActionResult GetById(int id)
+        {
+            try
+            {
+                using (var Context = new HalakContext())
+                {
+                    var horgasz = Context.Horgaszoks.FirstOrDefault(h=>h.Id==id);
+                    if (horgasz != null)
+                    {
+                        return StatusCode(200,horgasz);
+                    }
+                    return StatusCode(400);
+                }
+
+            }
+            catch (Exception a)
+            {
+
+               return StatusCode(404,a.Message); 
+            }
+        }
+    }
+    
+}

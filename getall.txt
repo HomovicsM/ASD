@@ -1,0 +1,33 @@
+using HalakAPI.Models;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+
+namespace HalakAPI.Controllers
+{
+    [Route("Horgaszok")]
+    [ApiController]
+    public class horgaszokController : ControllerBase
+    {
+        [HttpGet("All")]
+        public ActionResult GetAll()
+        {
+            try
+            {
+                using (var Context = new HalakContext())
+                {
+                     var horgaszok = Context.Horgaszoks.ToList();
+                    if (horgaszok != null)
+                    {
+                        return StatusCode(200,horgaszok);
+                    }
+                    return StatusCode(400);
+                }
+            }
+            catch (Exception e)
+            {
+
+                return StatusCode(400, e.Message);
+            }
+        }
+    }
+}
